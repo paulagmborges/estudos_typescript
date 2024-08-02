@@ -2,13 +2,14 @@ import prismaClient from "../../prisma";
 
 import{ hash } from 'bcryptjs';
 import { userRequest} from '../../models/interfaces/user/UserRequest'
+
 class CreateUserService{
     async execute({name, email, password}:userRequest) {
         if(!email){
             throw new Error("Email incorrect");
             
         }
-        const userAlreadyExists = await prismaClient.user.findFirts({
+        const userAlreadyExists = await prismaClient.user.findFirst({
             where:{
                 email:email
             }

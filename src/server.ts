@@ -1,6 +1,6 @@
 import express, { Request, Response, NextFunction } from 'express';
-import router from './routes.ts/routes'; 
-import "express-asunc-errors"
+import router from './routes/routes'; 
+import "express-async-errors"
 const app = express();
 const port = 3000;
 
