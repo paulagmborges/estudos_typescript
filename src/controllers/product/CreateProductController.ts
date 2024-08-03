@@ -5,8 +5,8 @@ class CreateProductController {
     async handle(req: Request, res: Response) {
       
             // Extrair dados do corpo da requisição
-            const { name, price, description, banner, category_id, amout } = req.body;
-
+            const { name, price, description, category_id, amount } = req.body;
+            const banner = req.file?.filename || " " ;// Obtém o nome do arquivo
             // Criar uma instância do serviço
             const createProductService = new CreateProductService();
 
@@ -15,9 +15,9 @@ class CreateProductController {
                 name,
                 price,
                 description,
-                banner,
+                banner: banner , // Corrigido aqui,
                 category_id,
-                amout
+                amount
             });
 
             // Retornar o produto criado como resposta

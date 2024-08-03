@@ -4,5 +4,5 @@ export interface ProductRequest{
     description:string;
     banner:string;
     category_id:string;
-    amout:number;
+    amount:number;
 }

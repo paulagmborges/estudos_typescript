@@ -7,7 +7,7 @@ class ListAllProductsService {
             select:{
                 id:true,
                 name:true,
-                amout:true,
+                amount:true,
             },
             orderBy:{
                 created_at:'desc'

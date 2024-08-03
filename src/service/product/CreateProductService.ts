@@ -2,7 +2,7 @@ import prismaClient from "../../prisma";
 import { ProductRequest} from "../../models/interfaces/product/productRequest";
 
 class CreateProductService {
-    async execute({ name, price, description, banner, category_id, amout }: ProductRequest) {
+    async execute({ name, price, description, banner, category_id, amount }: ProductRequest) {
         if (!name||name===null||name===" ") {
             throw new Error("Invalid name");
         }
@@ -14,7 +14,7 @@ class CreateProductService {
                 description:description, 
                 banner:banner, 
                 category_id:category_id, 
-                amout:+amout
+                amount:+amount
             }
         })
 

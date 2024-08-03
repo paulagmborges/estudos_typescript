@@ -12,8 +12,7 @@ class ListProductByCategoryService {
                 }
             }
         )
-        
+       return findProductByCategory
     }
 }
-
 export { ListProductByCategoryService };
