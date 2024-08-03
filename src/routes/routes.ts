@@ -12,8 +12,9 @@ import { CreateProductController } from '../controllers/product/CreateProductCon
 import{ListProductByCategoryController} from '../controllers/product/ListProductController';
 import{ListAllProductsController} from '../controllers/product/ListAllProductController';
 import{DeleteProductController} from '../controllers/product/DeleteProductController';
-
+import {SaleProductController} from "../controllers/sale/saleProductController"
 import uploadConfig from '../config/multer';
+
 
 const router = Router();
 const upload = multer(uploadConfig.upload("./tmp")); // Corrigido de 'upoload' para 'upload'
@@ -38,6 +39,11 @@ router.post('/category', isAuthentication, upload.single('file'), new CreateCate
 router.post('/product', isAuthentication,upload.single('file') ,new CreateProductController().handle);
 router.get('/product', isAuthentication,upload.single('file') ,new ListProductByCategoryController().handle);
 router.get('/products', isAuthentication,upload.single('file') ,new ListAllProductsController().handle);
-router.delete('/product/product/delete', isAuthentication,upload.single('file') ,new DeleteCategoryController().handle);
+router.delete('/product/product/delete', isAuthentication,upload.single('file') ,new DeleteProductController().handle);
+ 
+
+// sale routes
+ router.put("/sale/product",isAuthentication, new SaleProductController().handle)
+ 
 export default router;
 
