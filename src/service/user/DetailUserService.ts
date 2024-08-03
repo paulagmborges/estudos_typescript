@@ -18,3 +18,4 @@ class DetailUserService{
         }
     }
 }
+export{DetailUserService}
