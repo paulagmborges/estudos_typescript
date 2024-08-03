@@ -21,5 +21,5 @@ router.post('/me',isAuthentication, new DetailUserController().handle)
 router.post('/category',isAuthentication, new CreateCategoryController().handle)
 router.put('/category/edit',isAuthentication, new EditCategoryController().handle)
 router.get('/category/all',isAuthentication, new ListCategoryController().handle)
-router.delete('/category/',isAuthentication, new DeleteCategoryController().handle)
+router.delete('/category/delete',isAuthentication, new DeleteCategoryController().handle)
 export default router;
