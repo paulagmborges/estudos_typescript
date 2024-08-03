@@ -9,6 +9,10 @@ import { EditCategoryController } from '../controllers/category/EditCategoryCont
 import { ListCategoryController } from '../controllers/category/ListCategoryController';
 import { DeleteCategoryController } from '../controllers/category/DeleteCategoryController';
 import { CreateProductController } from '../controllers/product/CreateProductController';
+import{ListProductByCategoryController} from '../controllers/product/ListProductController';
+import{ListAllProductsController} from '../controllers/product/ListAllProductController';
+import{DeleteProductController} from '../controllers/product/DeleteProductController';
+
 import uploadConfig from '../config/multer';
 
 const router = Router();
@@ -32,7 +36,8 @@ router.get('/category/all', isAuthentication, new ListCategoryController().handl
 router.delete('/category/delete', isAuthentication, new DeleteCategoryController().handle);
 router.post('/category', isAuthentication, upload.single('file'), new CreateCategoryController().handle); // Ajuste se necessário
 router.post('/product', isAuthentication,upload.single('file') ,new CreateProductController().handle);
-
-
+router.get('/product', isAuthentication,upload.single('file') ,new ListProductByCategoryController().handle);
+router.get('/products', isAuthentication,upload.single('file') ,new ListAllProductsController().handle);
+router.delete('/product/product/delete', isAuthentication,upload.single('file') ,new DeleteCategoryController().handle);
 export default router;
 
